@@ -12,5 +12,5 @@ export class MainPage{
     // user is authorized
     //basket is empty
     //add product
-    
+    //THIS IS A TEST COMMENT
 }    
