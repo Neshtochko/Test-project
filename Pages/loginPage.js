@@ -7,14 +7,16 @@ export class LoginPage{
         this.loginBtn ='[name="login-button"]';
     }
 
-    import { test, expect } from '@playwright/test';
+    async gotoLoginPage(){
+      await this.page.goto("https://enotes.pointschool.ru/login");
+     }
+ 
+     async login(username,password){
+ 
+         await this.page.locator(this.usernameInput).fill(username);
+         await this.page.locator(this.passwordInput).fill(password);
+         await this.page.locator(this.loginButton).click();
+     }
+         
+ }
 
-    test('test', async ({ page }) => {
-      await page.goto('https://enotes.pointschool.ru/login');
-      await page.getByRole('textbox', { name: 'Логин' }).click();
-      await page.getByRole('textbox', { name: 'Логин' }).fill('test');
-      await page.getByRole('textbox', { name: 'Пароль' }).click();
-      await page.getByRole('textbox', { name: 'Пароль' }).fill('test');
-      await page.getByRole('button', { name: 'Вход' }).click();
-    });
-    
