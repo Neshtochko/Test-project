@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 import {LoginPage} from '../pages/loginPage';
-import{MainPage} from '../Pages/mainPage';
+import {MainPage} from '../Pages/mainPage';
 import {BasketPage} from '../pages/basketPage';
 
 
-test('Go to Empty Basket', async ({page})=>{
+test('Basket with one general product', async ({page})=>{
 
         // Login
         const login =new LoginPage(page);
@@ -20,15 +20,19 @@ test('Go to Empty Basket', async ({page})=>{
        //Empty Basket check
     
         await main.clearBasketIfNotEmpty();
-       
-        //Cart
-    
-        await main.goToBasketPage();
+        
 
-        //Check the URL
+        //Add product without discount to basket 
 
-        const basket = new BasketPage(page);
-        await basket.checkBasketURL();
+        await main.addToBasketProductWithoutDiscount();
+       // await main.verifyBasketCount(1);
+        /*await main.openBasketdropdown();
+        const basketContent= await main.basketContent();
+        await expect(basketContent).toContain('Кошечка Мари',' - 442 р.','442');*/
+
+        
+        
+     
        
 
     });

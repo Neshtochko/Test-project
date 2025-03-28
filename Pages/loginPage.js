@@ -21,4 +21,6 @@ export class LoginPage {
         //await this.page.locator(this.rememberMe).uncheck();
         await this.page.locator(this.loginBtn).click({force:true});
     }
+
+
 }
