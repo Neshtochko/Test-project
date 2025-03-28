@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import {LoginPage} from '../pages/loginPage';
 import {MainPage} from '../Pages/mainPage';
-import {BasketPage} from '../pages/basketPage';
+import {BasketPage} from '../pages/cartPage';
 
 
 test('Basket with one general product', async ({page})=>{
